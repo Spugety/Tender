@@ -1,40 +1,48 @@
-import './App.css';
-import Home from './components/home'
-import { useState } from 'react';
+import "./App.css";
+// importing components from react-router-dom package
+import {
+BrowserRouter as Router,
+Switch,
+Route,
+Redirect,
+} from "react-router-dom";
 
+// import Home component
+import Home from "./components/Home";
+// import About component
+import About from "./components/About";
+// import ContactUs component
+import ContactUs from "./components/ContactUs";
 
-// state is being used to render the new pages when clicked!
-// test pull req to git hub
 function App() {
-// the 0 in the useState function is representing the current page the app is rendering, can use a string
-// intial page is named current page, can change page using setcurrentpage
-// function display() {
-//   if(currentPage===0) {
-//     return <About></About>
-//   }
-//   else if (currentPage===1){
-//     return <Portfolio></Portfolio>
-//   }
-//   else if (currentPage===2){
-//     return <Contact></Contact>
-//   }
-//   else if(currentPage===3) {
-//     return <Resume></Resume>
-//   }
-// }
-  const [currentPage , setcurrentPage] = useState(0);
-  return (
-    <div className="App">
-      {/* jsx element */}
-      <Home></Home>
-    {/* <Home setcurrentPage={setcurrentPage}></Home> */}
-    {currentPage}
-    {/* {display()}; */}
-    
-    
-    
-    </div>
-  );
+return (
+	<>
+	{/* This is the alias of BrowserRouter i.e. Router */}
+	<Router>
+		<Switch>
+		{/* This route is for home component
+		with exact path "/", in component props
+		we passes the imported component*/}
+		<Route exact path="/" component={Home} />
+			
+		{/* This route is for about component
+		with exact path "/about", in component
+		props we passes the imported component*/}
+		<Route path="/about" component={About} />
+			
+		{/* This route is for contactus component
+		with exact path "/contactus", in
+		component props we passes the imported component*/}
+		<Route path="/contactus" component={ContactUs} />
+			
+		{/* If any route mismatches the upper
+		route endpoints then, redirect triggers
+		and redirects app to home component with to="/" */}
+		<Redirect to="/" />
+		</Switch>
+	</Router>
+	</>
+);
 }
 
 export default App;

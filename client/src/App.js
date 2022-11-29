@@ -1,6 +1,11 @@
 import './App.css';
 import Home from './components/home'
-import { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 
 // state is being used to render the new pages when clicked!

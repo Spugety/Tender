@@ -1,3 +1,4 @@
+// new npm package
 import {InputText} from 'primereact/inputtext';
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';

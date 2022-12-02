@@ -16,6 +16,8 @@ import ParentSignup from './components/signup/parent'
 import SitterSignup from './components/signup/sitter'
 import ParentAccount from './components/accounts/paccount'
 import SitterAccount from './components/accounts/saccount'
+import primereact from './prime';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -39,6 +41,7 @@ function App() {
 
 // This code provides the API routes for each page.
 return(
+
   <ApolloProvider client={client}>
     <Router>
       <Nav></Nav>
@@ -53,14 +56,18 @@ return(
         <Route path='/about' element={<About />} />
       <Route path='/sitter/saccount' element={<SitterAccount></SitterAccount>}></Route>
       <Route path="/parent/paccount" element={<ParentAccount></ParentAccount>}></Route>
-        
         {/* <Route path='/help' element={<Help />} /> */}
+      <Route path='./prime' element={<primereact></primereact>}></Route>
       </Routes>
     </Router>
   </ApolloProvider>
+
+ 
 );
+
 }
 
 
 
-export default App;
+
+export default App ;

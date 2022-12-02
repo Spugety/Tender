@@ -2,23 +2,15 @@
 import { gql } from "@apollo/client";
 
 export const ADDSITTER = gql`
-mutation addSitter($username: String!, $password: String!, $email: String!, $firstName: String!, $lastName: String!, $city: String!, $state: String!, $aboutMe: String) {
-  
-    addSitter(username: $username, password: $password, email: $email, firstName: $firstName, lastName: $lastName, city: $city, state: $state, aboutMe: $aboutMe) {
-  
-  _id
-  username
-  password
-  email
-  firstName
-  lastName
-  city
-  state
-  aboutMe
-  rating
-  
+mutation AddSitter($username: String!, $password: String!, $email: String!, $firstName: String!, $lastName: String!, $city: String!, $state: String!, $aboutMe: String) {
+  addSitter(username: $username, password: $password, email: $email, firstName: $firstName, lastName: $lastName, city: $city, state: $state, aboutMe: $aboutMe) {
+    token
+    user {
+      _id
+      username
     }
   }
+}
  `
 
 export const LOGIN_PARENT = gql`
@@ -63,14 +55,15 @@ mutation Mutation($username: String!, $password: String!, $email: String!, $firs
 `
 
 export const ADD_SITTERREQ = gql`
-mutation Mutation($date: String!, $time: String!, $price: Int!, $city: String!, $specialRequests: String!) {
+mutation addSitterReq($date: String!, $time: String!, $price: Int!, $city: String!, $specialRequests: String!) {
     addSitterReq(date: $date, time: $time, price: $price, city: $city, specialRequests: $specialRequests) {
       date
       time
       price
       city
-      _id
+      state
       submittedBy
+      specialReq
     }
   }
 `
